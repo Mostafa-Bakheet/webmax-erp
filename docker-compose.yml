@@ -1,0 +1,138 @@
+version: "3.8"
+
+services:
+  backend:
+    image: frappe/erpnext:v15
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - logs:/home/frappe/frappe-bench/logs
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      MYSQL_ROOT_PASSWORD: admin
+      MARIADB_ROOT_PASSWORD: admin
+    networks:
+      - webmax-network
+
+  frontend:
+    image: frappe/erpnext:v15
+    command: nginx-entrypoint
+    environment:
+      BACKEND: backend:8000
+      FRAPPE_SITE_NAME_HEADER: webmax.localhost
+      SOCKETIO: websocket:9000
+      UPSTREAM_REAL_IP_ADDRESS: 127.0.0.1
+      UPSTREAM_REAL_IP_HEADER: X-Forwarded-For
+      UPSTREAM_REAL_IP_RECURSIVE: "off"
+    ports:
+      - "8080:8080"
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites:ro
+    networks:
+      - webmax-network
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  websocket:
+    image: frappe/erpnext:v15
+    command: node /home/frappe/frappe-bench/apps/frappe/socketio.js
+    networks:
+      - webmax-network
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  queue-default:
+    image: frappe/erpnext:v15
+    command: bench worker --queue default
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - logs:/home/frappe/frappe-bench/logs
+    networks:
+      - webmax-network
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  queue-short:
+    image: frappe/erpnext:v15
+    command: bench worker --queue short
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - logs:/home/frappe/frappe-bench/logs
+    networks:
+      - webmax-network
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  queue-long:
+    image: frappe/erpnext:v15
+    command: bench worker --queue long
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - logs:/home/frappe/frappe-bench/logs
+    networks:
+      - webmax-network
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  scheduler:
+    image: frappe/erpnext:v15
+    command: bench schedule
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - logs:/home/frappe/frappe-bench/logs
+    networks:
+      - webmax-network
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  db:
+    image: mariadb:10.6
+    deploy:
+      restart_policy:
+        condition: on-failure
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+      - --skip-innodb-read-only-compressed
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MARIADB_ROOT_PASSWORD: admin
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - webmax-network
+
+  redis-cache:
+    image: redis:6.2-alpine
+    networks:
+      - webmax-network
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  redis-queue:
+    image: redis:6.2-alpine
+    networks:
+      - webmax-network
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+volumes:
+  sites:
+  logs:
+  db-data:
+
+networks:
+  webmax-network:
+    driver: bridge

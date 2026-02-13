@@ -1,0 +1,19 @@
+{
+  "name": "webmax",
+  "version": "1.0.0-dev",
+  "description": "WEBMAX - نظام ERP مفتوح المصدر",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webmax/webmax"
+  },
+  "homepage": "https://webmax-erp.site",
+  "author": "WEBMAX Technologies",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/webmax/webmax/issues"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "onscan.js": "^1.5.2"
+  }
+}

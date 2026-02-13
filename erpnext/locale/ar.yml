@@ -1,0 +1,125 @@
+# Arabic translations for WEBMAX
+
+ar:
+  # App Name & Branding
+  "ERPNext": "WEBMAX"
+  "erpnext": "webmax"
+  
+  # Navigation & Common
+  "Accounts": "حسابات"
+  "CRM": "إدارة العملاء"
+  "Buying": "المشتريات"
+  "Projects": "المشاريع"
+  "Selling": "المبيعات"
+  "Setup": "الإعدادات"
+  "Manufacturing": "التصنيع"
+  "Stock": "المخزون"
+  "Support": "الدعم"
+  "Assets": "الأصول"
+  "Maintenance": "الصيانة"
+  "Quality Management": "إدارة الجودة"
+  
+  # Common Actions
+  "New": "جديد"
+  "Save": "حفظ"
+  "Submit": "إرسال"
+  "Cancel": "إلغاء"
+  "Delete": "حذف"
+  "Edit": "تعديل"
+  "View": "عرض"
+  "Print": "طباعة"
+  "Email": "بريد إلكتروني"
+  "Export": "تصدير"
+  "Import": "استيراد"
+  "Refresh": "تحديث"
+  "Filter": "تصفية"
+  "Search": "بحث"
+  
+  # Document Status
+  "Draft": "مسودة"
+  "Submitted": "مرسل"
+  "Cancelled": "ملغي"
+  "Pending": "معلق"
+  "Completed": "مكتمل"
+  "Closed": "مغلق"
+  
+  # Accounting Terms
+  "Sales Invoice": "فاتورة مبيعات"
+  "Purchase Invoice": "فاتورة مشتريات"
+  "Payment Entry": "إدخال دفع"
+  "Journal Entry": "قيد يومية"
+  "Customer": "عميل"
+  "Supplier": "مورد"
+  "Item": "صنف"
+  "Warehouse": "مستودع"
+  "Company": "شركة"
+  "Cost Center": "مركز تكلفة"
+  
+  # Sales & Purchase
+  "Sales Order": "أمر بيع"
+  "Purchase Order": "أمر شراء"
+  "Delivery Note": "إشعار تسليم"
+  "Purchase Receipt": "إيصال شراء"
+  "Quotation": "عرض سعر"
+  "Supplier Quotation": "عرض سعر مورد"
+  
+  # Stock Terms
+  "Stock Entry": "إدخال مخزون"
+  "Stock Reconciliation": "تسوية مخزون"
+  "Material Request": "طلب مواد"
+  "BOM": "قائمة مواد"
+  "Work Order": "أمر عمل"
+  
+  # Messages
+  "Saved successfully": "تم الحفظ بنجاح"
+  "Submitted successfully": "تم الإرسال بنجاح"
+  "Cancelled successfully": "تم الإلغاء بنجاح"
+  "Deleted successfully": "تم الحذف بنجاح"
+  "Error": "خطأ"
+  "Warning": "تحذير"
+  "Success": "نجاح"
+  
+  # User Interface
+  "Dashboard": "لوحة التحكم"
+  "Reports": "التقارير"
+  "Settings": "الإعدادات"
+  "Profile": "الملف الشخصي"
+  "Logout": "تسجيل خروج"
+  "Login": "تسجيل دخول"
+  "Register": "تسجيل"
+  "Help": "مساعدة"
+  "About": "حول"
+  
+  # System
+  "Administrator": "مدير النظام"
+  "System Manager": "مدير النظام"
+  "Role": "دور"
+  "User": "مستخدم"
+  "Permission": "صلاحية"
+  "Workspace": "مساحة العمل"
+  
+  # Reports & Analytics
+  "General Ledger": "دفتر الأستاذ العام"
+  "Trial Balance": "ميزان المراجعة"
+  "Balance Sheet": "الميزانية العمومية"
+  "Profit and Loss Statement": "قائمة الدخل"
+  "Cash Flow": "التدفق النقدي"
+  
+  # Manufacturing
+  "Production Plan": "خطة إنتاج"
+  "Job Card": "بطاقة عمل"
+  "Downtime Entry": "إدخال توقف"
+  "Subcontracting": "التعاقد من الباطن"
+  
+  # HR (if applicable)
+  "Employee": "موظف"
+  "Attendance": "الحضور"
+  "Leave": "إجازة"
+  "Payroll": "الرواتب"
+  "Salary Slip": "قسيمة راتب"
+  
+  # Support
+  "Issue": "مشكلة"
+  "Issue Type": "نوع المشكلة"
+  "Priority": "أولوية"
+  "Service Level Agreement": "اتفاقية مستوى الخدمة"

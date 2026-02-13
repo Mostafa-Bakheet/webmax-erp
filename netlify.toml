@@ -1,0 +1,16 @@
+[build]
+  command = "pip install -e . && python -m webmax.build"
+  publish = "webmax/public"
+
+[build.environment]
+  PYTHON_VERSION = "3.10"
+  FRAPPE_ENV = "production"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[site]
+  name = "webmax-erp"
+  url = "webmax-erp.site"
