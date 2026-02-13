@@ -1,0 +1,17 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "docker-compose -f docker-compose.yml up -d"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+[network]
+ipAllowList = ["0.0.0.0/0"]
+
+[[services]]
+name = "web"
+internalPort = 8080
+externalPort = 8080
+protocol = "tcp"
