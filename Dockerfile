@@ -17,6 +17,9 @@ RUN mkdir -p /home/frappe/frappe-bench/sites /home/frappe/frappe-bench/logs
 # Copy entire project
 COPY --chown=frappe:frappe . /home/frappe/frappe-bench/apps/webmax
 
+# Rename erpnext folder to webmax for proper module import
+RUN mv /home/frappe/frappe-bench/apps/webmax/erpnext /home/frappe/frappe-bench/apps/webmax/webmax 2>/dev/null || true
+
 # Install the app
 WORKDIR /home/frappe/frappe-bench/apps/webmax
 RUN pip install -e .
