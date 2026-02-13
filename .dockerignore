@@ -1,0 +1,22 @@
+# Docker ignore for WEBMAX ERP
+.git
+.gitignore
+.github
+*.md
+!README.md
+node_modules
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.env
+.env.local
+.DS_Store
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.vs
