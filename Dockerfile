@@ -14,11 +14,12 @@ ENV REDIS_SOCKETIO_HOST=redis-socketio
 # Create necessary directories
 RUN mkdir -p /home/frappe/frappe-bench/sites /home/frappe/frappe-bench/logs
 
-# Copy custom app
-COPY --chown=frappe:frappe erpnext /home/frappe/frappe-bench/apps/webmax
+# Copy entire project
+COPY --chown=frappe:frappe . /home/frappe/frappe-bench/apps/webmax
 
 # Install the app
-RUN pip install -e /home/frappe/frappe-bench/apps/webmax
+WORKDIR /home/frappe/frappe-bench/apps/webmax
+RUN pip install -e .
 
 # Expose port
 EXPOSE 8000
