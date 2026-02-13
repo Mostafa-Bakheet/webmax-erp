@@ -1,12 +1,12 @@
 [project]
 name = "webmax"
+version = "1.0.0"
 authors = [
     { name = "WEBMAX Technologies", email = "hello@webmax-erp.site"}
 ]
 description = "WEBMAX - نظام ERP مفتوح المصدر"
-requires-python = ">=3.14"
+requires-python = ">=3.11"
 readme = "README.md"
-dynamic = ["version"]
 dependencies = [
     # Core dependencies
     "Unidecode~=1.4.0",
@@ -27,8 +27,12 @@ dependencies = [
 ]
 
 [build-system]
-requires = ["flit_core >=3.4,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["erpnext*"]
 
 [tool.frappe.testing.function_type_validation]
 max_module_depth = 1
